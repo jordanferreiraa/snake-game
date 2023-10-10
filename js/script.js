@@ -9,7 +9,39 @@ const snake = [
   { x: 330, y: 240 },
 ]
 
+const randomNumber = (min, max) => {
+  return Math.round(Math.random() * (max - min) + min)
+}
+const randomPosition = () => {
+  const number = randomNumber(0, canvas.width - size)
+  return Math.round(number / 30) * 30
+}
+const randomColor = () => {
+  const red = randomNumber(0, 255)
+  const green = randomNumber(0, 255)
+  const blue = randomNumber(0, 255)
+
+  return `rgb(${red}, ${green}, ${blue})`
+}
+
+const food = {
+  x: randomPosition(),
+  y: randomPosition(),
+  color: randomColor(),
+}
+
 let direction, loopId
+
+const drawFood = () => {
+
+  const { x, y, color } = food
+
+  ctx.shadowColor = color
+  ctx.shadowBlur = 10
+  ctx.fillStyle = color
+  ctx.fillRect(x, y, size, size)
+  ctx.shadowBlur = 0
+}
 
 const drawSnake = () => {
   ctx.fillStyle = "white"
@@ -47,11 +79,31 @@ const moveSnake = () => {
 
   snake.shift()
 }
+
+const drawGrid = () => {
+  ctx.lineWidth = 1
+  ctx.strokeStyle = "#191919"
+
+  for(let i=size; i< canvas.width; i+=size) {
+    ctx.beginPath()
+    ctx.lineTo(i, 0)
+    ctx.lineTo(i, 600)
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.lineTo(0, i)
+    ctx.lineTo(600, i)
+    ctx.stroke()
+  }
+
+}
  
 const gameLoop = () => {
   clearInterval(loopId)
 
   ctx.clearRect(0, 0, 600, 600)
+  drawGrid()
+  drawFood()
   moveSnake()
   drawSnake()
 
