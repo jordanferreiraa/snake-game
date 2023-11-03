@@ -6,6 +6,11 @@ const finalScore = document.querySelector(".final-score > span")
 const menu = document.querySelector(".menu-screen")
 const buttonPlay = document.querySelector(".btn-play")
 
+const buttonUp = document.querySelector(".btn-up")
+const buttonDown = document.querySelector(".btn-down")
+const buttonRight = document.querySelector(".btn-right")
+const buttonLeft = document.querySelector(".btn-left")
+
 const audio = new Audio('../assets/audio.mp3')
 
 const size = 30
@@ -197,4 +202,27 @@ buttonPlay.addEventListener("click", () => {
     { x: 270, y: 240 },
     { x: 300, y: 240 },
   ]
+})
+
+/* ====== */
+
+buttonUp.addEventListener("click", () => {
+  if(direction != "down") {
+    direction = "up"
+  }
+})
+buttonDown.addEventListener("click", () => {
+  if(direction != "up") {
+    direction = "down"
+  }
+})
+buttonRight.addEventListener("click", () => {
+  if(direction != "left") {
+    direction = "right"
+  }
+})
+buttonLeft.addEventListener("click", () => {
+  if(direction != "right") {
+    direction = "left"
+  }
 })

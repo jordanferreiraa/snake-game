@@ -71,3 +71,49 @@ canvas {
 .btn-play:hover {
   cursor: pointer;
 }
+
+/* ====== */
+
+.setinhas {
+  display: none;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    ". up ."
+    "left . right"
+    ". down ."
+  ;
+  margin: 20px auto;
+}
+
+.setinhas .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.btn-right {
+  grid-area: right;
+}
+.btn-left {
+  grid-area: left;
+  rotate: 180deg;
+}
+.btn-up {
+  grid-area: up;
+  rotate: 270deg;
+
+}
+.btn-down {
+  grid-area: down;
+  rotate: 90deg;
+}
+
+@media screen and (max-width: 768px) {
+  .setinhas {
+    display: grid;
+  }
+}
