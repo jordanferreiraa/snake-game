@@ -15,6 +15,7 @@ body {
   align-items: center;
   flex-direction: column;
   color: #FFF;
+  /* overflow: hidden; */
 }
 
 canvas {
@@ -32,7 +33,7 @@ canvas {
   font-weight: 700;
   font-size: 4.5rem;
   display: block;
-  margin-top: -10px;
+  margin-top: -0.7rem;
 }
 
 .menu-screen {
@@ -83,14 +84,15 @@ canvas {
     "left . right"
     ". down ."
   ;
-  margin: 5px auto;
+  /* margin: 5px auto; */
+  margin: .7rem auto 2.5rem auto;
 }
 
 .setinhas .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: .7rem;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -112,13 +114,13 @@ canvas {
   rotate: 90deg;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 545px) {
   .setinhas {
     display: grid;
   }
 
   body {
-    overflow: hidden;
+    /* overflow: hidden; */
     min-height: 100vh;
   }
 
@@ -132,7 +134,7 @@ canvas {
 
   .score--value {
     font-size: 2.5rem;
-    margin: 0;
-    height: 58px;
+    /* margin: 0; */
+    /* height: 3.3rem; */
   }
 }
